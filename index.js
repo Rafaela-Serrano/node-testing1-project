@@ -7,7 +7,12 @@
  * trimProperties({ name: '  jane  ' }) // returns a new object { name: 'jane' }
  */
 function trimProperties(obj) {
-  // ✨ implement
+  let objCopy = {}
+  for( let prop in obj){
+     objCopy[prop] = obj[prop].trim()
+  }
+  
+  return objCopy
 }
 
 /**
@@ -19,7 +24,10 @@ function trimProperties(obj) {
  * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
  */
 function trimPropertiesMutation(obj) {
-  // ✨ implement
+  for(let prop in obj){
+    obj[prop] = obj[prop].trim()
+  }  
+  return obj
 }
 
 /**
@@ -31,9 +39,15 @@ function trimPropertiesMutation(obj) {
  * findLargestInteger([{ integer: 1 }, { integer: 3 }, { integer: 2 }]) // returns 3
  */
 function findLargestInteger(integers) {
-  // ✨ implement
-}
+ let largest = integers[0].integer;
 
+ for( let index = 0 ; index < integers.length ; index++ ){
+  if(integers[index].integer > largest)
+  {
+    return largest = integers[index].integer
+  }
+ }
+}
 class Counter {
   /**
    * [Exercise 4A] Counter creates a counter
@@ -41,6 +55,7 @@ class Counter {
    */
   constructor(initialNumber) {
     // ✨ initialize whatever properties are needed
+    this.count = initialNumber
   }
 
   /**
@@ -57,8 +72,8 @@ class Counter {
    */
   countDown() {
     // ✨ implement
-  }
-}
+    return this.count > 0 ? this.count-- : this.count
+}}
 
 class Seasons {
   /**
